@@ -5,10 +5,10 @@ import store from "./store";
 import "@/assets/main.scss";
 
 // Global Header Reg.
-import Header from "@/components/Header.vue";
+import Sidebar from "@/components/Sidebar.vue";
 
 createApp(App)
   .use(store)
   .use(router)
-  .component("Header", Header)
+  .component("Sidebar", Sidebar)
   .mount("#app");

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Header from '../components/Header.vue'
+import Sidebar from '../components/Sidebar.vue'
 
 const routes = [
   {
@@ -7,7 +7,7 @@ const routes = [
     name: 'Home',
     components: {
       default : () => import("../views/Home.vue"),
-      Header
+      Sidebar
     }
   },
   {

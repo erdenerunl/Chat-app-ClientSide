@@ -102,7 +102,6 @@ img {
   border: none;
   border-bottom: 1px solid #e7e7e7;
   border-radius: 0;
-  padding: 9px 5px;
   min-height: 40px;
   font-size: 18px;
   font-weight: normal;
