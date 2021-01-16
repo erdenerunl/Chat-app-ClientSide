@@ -5,6 +5,7 @@
         <div class="row">
           <sidebar />
           <chatbar />
+          <chat />
         </div>
       </div>
     </div>
@@ -14,10 +15,12 @@
 <script>
 import Sidebar from '@/components/Sidebar.vue'
 import Chatbar from '@/components/Chatbar.vue'
+import Chat from '@/components/Chat.vue'
 export default {
   components : {
     Sidebar,
-    Chatbar
+    Chatbar,
+    Chat
   }
 }
 </script>

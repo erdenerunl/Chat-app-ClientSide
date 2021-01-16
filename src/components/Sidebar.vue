@@ -60,6 +60,7 @@ export default {};
 
 <style scoped lang="scss">
 nav.navigation {
+  max-width: 100px;
   background: #fff;
   border-right: 1px solid #e6e6e6;
 
