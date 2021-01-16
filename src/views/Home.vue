@@ -2,7 +2,10 @@
   <div>
     <div class="layout">
       <div class="container-fluid layout-wrapper p-0">
-        <sidebar />
+        <div class="row">
+          <sidebar />
+          <chatbar />
+        </div>
       </div>
     </div>
   </div>
@@ -10,9 +13,11 @@
 
 <script>
 import Sidebar from '@/components/Sidebar.vue'
+import Chatbar from '@/components/Chatbar.vue'
 export default {
   components : {
-    Sidebar
+    Sidebar,
+    Chatbar
   }
 }
 </script>
