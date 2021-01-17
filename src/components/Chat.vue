@@ -1,5 +1,5 @@
 <template>
-  <div class="col-7 chat p-0">
+  <div class="col-8 chat p-0">
     <!-- <div class="empty-box">
           <p class="bg-danger p-3">Yan taraftan bir yazışma seç.</p>
       </div> -->

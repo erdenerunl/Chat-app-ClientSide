@@ -2,8 +2,8 @@
   <div>
     <div class="layout">
       <div class="container-fluid layout-wrapper p-0">
+        <sidebar />
         <div class="row">
-          <sidebar />
           <chatbar />
           <chat />
         </div>
