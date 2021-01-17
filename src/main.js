@@ -7,11 +7,11 @@ import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
 
 // Global Header Reg.
-import Sidebar from "@/components/Sidebar.vue";
+import Navbar from "@/components/Navbar.vue";
 
 createApp(App)
   .use(store)
   .use(router)
   .use(PerfectScrollbar)
-  .component("Sidebar", Sidebar)
+  .component("Navbar", Navbar)
   .mount("#app");

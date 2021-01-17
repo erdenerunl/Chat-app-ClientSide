@@ -2,7 +2,7 @@
   <div>
     <div class="layout">
       <div class="container-fluid layout-wrapper p-0">
-        <sidebar />
+        <navbar />
         <div class="row">
           <chatbar />
           <chat />
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar.vue'
+import Navbar from '@/components/Navbar.vue'
 import Chatbar from '@/components/Chatbar.vue'
 import Chat from '@/components/Chat.vue'
 export default {
   components : {
-    Sidebar,
+    Navbar,
     Chatbar,
     Chat
   }

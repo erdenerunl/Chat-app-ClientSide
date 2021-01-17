@@ -99,6 +99,7 @@ nav.navigation {
       color: #828282;
       position: relative;
       transition: all 0.3s;
+      cursor: pointer;
     }
   }
   ul:nth-child(2) {
