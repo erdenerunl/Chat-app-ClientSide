@@ -1,14 +1,17 @@
-import Axios from 'axios'
+import Axios from 'axios';
 
 export default {
     namespaced: true,
     state:{
-        chatList: []
+        chatList: [],
+        
+        
     },
     mutations:{
         getChatList(state, newChatList){
             state.chatList = newChatList
-        }
+        },
+        
     },
     actions:{
         getChatList({commit}){
@@ -18,6 +21,7 @@ export default {
         }
     },
     getters:{
-        chatList: state => state.chatList
+        chatList: state => state.chatList,
+        filteredChatList: state => state.filteredChatList
     }
 }

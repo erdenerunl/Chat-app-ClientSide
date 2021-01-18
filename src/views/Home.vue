@@ -2,10 +2,10 @@
   <div>
     <div class="layout">
       <div class="container-fluid layout-wrapper p-0">
-        <navbar />
+        <navbar  />
         <div class="row mr-0">
           <chatbar />
-          <chat />
+          <chat  />
         </div>
       </div>
     </div>
@@ -21,7 +21,8 @@ export default {
     Navbar,
     Chatbar,
     Chat
-  }
+  },
+  
 }
 </script>
 

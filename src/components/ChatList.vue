@@ -26,7 +26,7 @@ export default {
   },
   computed:{
     ...mapGetters({
-      chatList: "ChatList/chatList"
+      chatList: "ChatList/chatList",
     })
   }
 };

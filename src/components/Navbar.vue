@@ -15,8 +15,8 @@
       </button>
       <div class="navbar-collapse collapse " id="navbarColor03">
         <ul class="navbar-nav mr-auto">
-          <li>
-            <a :href="toChat" data-title="chats">
+          <li @click="toChat" >
+            <a href="#" data-title="chats">
               
               <!-- <span></span> Burada bildirim badgeleri olacak -->
               <img
@@ -46,7 +46,7 @@
         </ul>
         <ul>
           <li class="dark-mode">
-            <a data-title="dark mode">
+            <a href="#" data-title="dark mode">
               <!-- <span></span> Burada bildirim badgeleri olacak -->
               <img
                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE2IDE2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48Zz4KPHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjMTU3YTZiIiBkPSJNOCAwYy00LjQgMC04IDMuNi04IDhzMy42IDggOCA4IDgtMy42IDgtOC0zLjYtOC04LTh6TTggMTVjLTMuOSAwLTctMy4xLTctNyAwLTIuNCAxLjItNC42IDMuMi01LjktMC4xIDAuNi0wLjIgMS4zLTAuMiAxLjkgMCA0LjkgNCA4LjkgOC45IDktMS4zIDEuMy0zIDItNC45IDJ6IiBkYXRhLW9yaWdpbmFsPSIjNDQ0NDQ0IiBzdHlsZT0iIj48L3BhdGg+CjwvZz48L3N2Zz4="
@@ -70,7 +70,11 @@
 
 <script>
 export default {
-  
+  methods:{
+    toChat(){
+      console.log('merhaba')
+    }
+  }
 };
 </script>
 
