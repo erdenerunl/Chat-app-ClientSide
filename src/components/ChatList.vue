@@ -1,16 +1,16 @@
 <template>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item" v-for="i in 10" :key="i">
+    <li class="list-group-item" v-for="chat in chatList" :key="chat.id">
       <figure class="user-avatar">
         <div class="fake-img"></div>
       </figure>
       <div class="user-list-body d-flex w-100 justify-content-between">
         <div class="user-list-text">
-          <h5>Onur Kayabaşı</h5>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <h5>{{ chat.from }}</h5>
+          <p> {{ chat.message }} </p>
         </div>
         <div class="user-list-info pl-3">
-          <small>5.20PM</small>
+          <small> {{ chat.msg_date }} </small>
         </div>
       </div>
     </li>
@@ -18,7 +18,18 @@
 </template>
 
 <script>
-export default {};
+import {mapGetters} from 'vuex';
+export default {
+  
+  created(){
+    this.$store.dispatch("ChatList/getChatList")
+  },
+  computed:{
+    ...mapGetters({
+      chatList: "ChatList/chatList"
+    })
+  }
+};
 </script>
 
 <style lang="scss" scoped>

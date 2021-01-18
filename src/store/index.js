@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
-import Chatbar from './modules/Chatbar.js'
+import Friends from './modules/Friends.js'
+import ChatList from './modules/ChatList.js'
 
 export default createStore({
   state: {
@@ -9,6 +10,7 @@ export default createStore({
   actions: {
   },
   modules: {
-    Chatbar
+    Friends,
+    ChatList
   }
 })

@@ -22,10 +22,15 @@
         </ul>
       </header>
       <form action="#">
-        <input
+        <input v-if="pageName"
           type="text"
           class="form-control"
           placeholder="Konuşmalarda ara..."
+        />
+        <input v-else
+          type="text"
+          class="form-control"
+          placeholder="Arkadaş ara..."
         />
       </form>
       <div class="chatbar-body">

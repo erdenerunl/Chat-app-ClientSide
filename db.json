@@ -2,19 +2,50 @@
     "friends": [
         {
             "id":1,
-            "name": "Onur Kayabaşı"
+            "name": "Onur Kayabaşı",
+            "status": "Biraz egoluyumdur ağlamayın."
         },
         {
             "id":2,
-            "name": "Hilal Odabaşı"
+            "name": "Hilal Odabaşı",
+            "status": "Erdener <3"
         },
         {
             "id":3,
-            "name": "Aleyna Güner"
+            "name": "Aleyna Güner",
+            "status": "Beni herkes sever"
         },
         {
             "id":4,
-            "name": "Faruk Coş"
+            "name": "Faruk Coş",
+            "status": "Benim her günüm böyle..."
+        }
+    ],
+    "chatList":[
+        {
+            "id":1,
+            "from": "Onur Kayabaşı",
+            "msg_date": "3.32PM",
+            "message": "Naber knk??"
+        },
+        {
+            "id":2,
+            "from": "Hilal Odabaşı",
+            "msg_date": "12.25AM",
+            "message": "Günaydın"
+        },
+        {
+            "id":3,
+            "from": "Aleyna Güner",
+            "msg_date": "5.32PM",
+            "message": "Reklamını yapman lazım knkaa"
+        },
+        {
+            "id":4,
+            "from": "Faruk Coş",
+            "msg_date": "8.00PM",
+            "message": "Bugünüm de böyle"
         }
     ]
+    
 }

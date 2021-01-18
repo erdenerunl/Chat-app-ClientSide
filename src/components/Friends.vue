@@ -1,13 +1,13 @@
 <template>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item" v-for="i in 10" :key="i">
+    <li class="list-group-item" v-for="friend in friends" :key="friend.id">
       <figure class="user-avatar">
         <div class="fake-img"></div>
       </figure>
       <div class="user-list-body d-flex w-100 justify-content-between">
         <div class="user-list-text">
-          <h5>Hilal Odabaşı</h5>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <h5> {{ friend.name }} </h5>
+          <p> {{ friend.status }} </p>
         </div>
       </div>
     </li>
@@ -15,7 +15,18 @@
 </template>
 
 <script>
-export default {};
+import {mapGetters} from 'vuex'
+export default {
+
+    created(){
+        this.$store.dispatch("Friends/getFriends")
+    },
+    computed:{
+        ...mapGetters({
+            friends : "Friends/friends"
+        })
+    }
+};
 </script>
 
 <style lang="scss" scoped>
