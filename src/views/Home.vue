@@ -3,7 +3,7 @@
     <div class="layout">
       <div class="container-fluid layout-wrapper p-0">
         <navbar />
-        <div class="row">
+        <div class="row mr-0">
           <chatbar />
           <chat />
         </div>

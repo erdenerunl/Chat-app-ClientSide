@@ -1,5 +1,5 @@
 <template>
-  <nav class="navigation navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navigation navbar navbar-expand-sm navbar-light bg-light">
     <div class="nav-group container-fluid">
       <a class="logo ml-0 navbar-brand">Logo</a>
       <button
@@ -13,7 +13,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarColor03">
+      <div class="navbar-collapse collapse " id="navbarColor03">
         <ul class="navbar-nav mr-auto">
           <li>
             <a>

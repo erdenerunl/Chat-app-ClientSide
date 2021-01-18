@@ -1,5 +1,5 @@
 <template>
-  <div class="col-8 chat p-0">
+  <div class="col-lg-8 col-md-9 col-sm-12 chat p-0">
     <!-- <div class="empty-box">
           <p class="bg-danger p-3">Yan taraftan bir yazışma seç.</p>
       </div> -->
@@ -152,7 +152,7 @@ export default {};
 }
 .ps {
   position: relative;
-  height: calc(100vh - 92px - 85px);
+  height: calc(100vh - 92px - 87px - 83px);
 }
 .chat-footer {
   max-height: 85px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 p-0 d-flex flex-column">
+  <div class="col-lg-4 col-md-3 col-sm-12 p-0 d-flex flex-column">
     <div class="chatbar">
       <header>
         <span>Konuşmalar</span>
@@ -63,7 +63,6 @@ p {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  max-width: 462px;
   border-right: 1px solid #e6e6e6;
 
   header {
@@ -135,7 +134,7 @@ p {
 }
 .ps {
   position: relative;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 260px);
   overflow: hidden;
 }
 
