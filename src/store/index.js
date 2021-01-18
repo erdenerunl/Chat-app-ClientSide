@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import Chatbar from './modules/Chatbar.js'
 
 export default createStore({
   state: {
@@ -8,5 +9,6 @@ export default createStore({
   actions: {
   },
   modules: {
+    Chatbar
   }
 })

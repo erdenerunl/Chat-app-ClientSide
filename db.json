@@ -1,0 +1,20 @@
+{
+    "friends": [
+        {
+            "id":1,
+            "name": "Onur Kayabaşı"
+        },
+        {
+            "id":2,
+            "name": "Hilal Odabaşı"
+        },
+        {
+            "id":3,
+            "name": "Aleyna Güner"
+        },
+        {
+            "id":4,
+            "name": "Faruk Coş"
+        }
+    ]
+}
