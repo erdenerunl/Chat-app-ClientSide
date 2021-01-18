@@ -1,6 +1,6 @@
 <template>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item" v-for="chat in chatList" :key="chat.id">
+    <li class="list-group-item" v-for="chat in chatList" :key="chat.id" @click="showChat(chat)" >
       <figure class="user-avatar">
         <div class="fake-img"></div>
       </figure>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters, mapMutations} from 'vuex';
 export default {
   
   created(){
@@ -27,6 +27,9 @@ export default {
   computed:{
     ...mapGetters({
       chatList: "ChatList/chatList",
+    }),
+    ...mapMutations({
+      showChat: "ChatDetails/showChat"
     })
   }
 };

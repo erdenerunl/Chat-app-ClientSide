@@ -15,7 +15,7 @@
       </button>
       <div class="navbar-collapse collapse " id="navbarColor03">
         <ul class="navbar-nav mr-auto">
-          <li @click="toChat" >
+          <li @click="showChatList" >
             <a href="#" data-title="chats">
               
               <!-- <span></span> Burada bildirim badgeleri olacak -->
@@ -26,7 +26,7 @@
             </a>
           </li>
 
-          <li>
+          <li @click="newChat">
             <a href="#" data-title="Friends">
               <!-- <span></span> Burada bildirim badgeleri olacak -->
               <img
@@ -69,11 +69,13 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex';
 export default {
-  methods:{
-    toChat(){
-      console.log('merhaba')
-    }
+  computed:{
+    ...mapMutations({
+      showChatList: "Chatbar/showChatList",
+      newChat: "Chatbar/newChat"
+    })
   }
 };
 </script>
