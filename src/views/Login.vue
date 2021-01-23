@@ -1,109 +1,187 @@
 <template>
-  <div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-6 login-wrapper">
-          <div class="brand py-3">
-            <h5>ChatApp</h5>
-            <!--Logo buraya <img src="" alt=""> -->
-          </div>
-          <div class="login-data-wrapper py-auto">
-            <h1 class="login-title">Giriş Yap</h1>
-            <form action="#">
-              <div class="form-group">
-                <label for="text">Kullanıcı Adı</label>
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  class="form-control"
-                  placeholder="KralBozguncu..."
-                />
-              </div>
-              <div class="form-group my-4">
-                <label for="password">Şifre</label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  class="form-control"
-                  placeholder="Unutmayacağın bir şifre yaz..."
-                />
-              </div>
-              <input
-                name="login"
-                id="login"
-                class="btn btn-block login-btn"
-                type="button"
-                value="Login"
-              />
-            </form>
-            <a href="#" class="forgot-password-link">Şifremi Unuttum</a>
-          </div>
-        </div>
-        <div class="col-sm-6 d-sm-block">
-          <img src="../assets/login-bg.jpg" alt="login Page" />
-        </div>
-      </div>
-    </div>
+  <div class="container containerdiv" :class="overlayChange()" id="container">
+    <sign-up />
+    <sign-in />
+    <overlay @setOverlay="setOverlay" />
   </div>
 </template>
 
+<script>
+import SignUp from "@/components/LoginPage/SignUp.vue";
+import SignIn from "@/components/LoginPage/SignIn.vue";
+import Overlay from "@/components/LoginPage/Overlay.vue";
 
+export default {
+  components: {
+    SignUp,
+    SignIn,
+    Overlay,
+  },
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  methods: {
+    setOverlay() {
+      this.isActive = !this.isActive;
+    },
+    overlayChange() {
+      return {
+        "right-panel-active": this.isActive === true,
+        "": this.isActive === false,
+      };
+    },
+  },
+};
+</script>
 
-<style lang="scss" scoped>
-.login-wrapper {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  padding: 4.25rem 6.25rem;
-}
-img {
+<style lang="scss">
+.containerdiv {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  object-position: left;
-}
-.login-data-wrapper {
-  width: 300px;
   max-width: 100%;
+  min-height: 480px;
+  height: 100vh;
+}
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
 
-  label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #b0adad;
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.containerdiv.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+
+.containerdiv.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
+@keyframes show {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
   }
-  .form-control {
-    border: none;
-    border-bottom: 1px solid #e7e7e7;
-    border-radius: 0;
-    padding: 9px 5px;
-    min-height: 40px;
-    font-size: 18px;
-    font-weight: normal;
-  }
-  .login-btn {
-    padding: 13px 20px;
-    background-color: #3C1500;
-    border-radius: 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 14px;
+
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
   }
 }
-.login-title {
-  font-size: 30px;
-  color: #000;
+h1 {
   font-weight: bold;
-  margin-bottom: 25px;
+  margin: 0;
 }
-.form-group {
+
+p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+span {
+  font-size: 12px;
+}
+
+a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+  transition: all 200ms;
+
+  &:hover:not(.forgot-password){
+    background-color: #00d4ff;
+  }
+
+  &.forgot-password:hover{
+    color: #0193b1;
+  }
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #00d4ff;
+  background-color: #00d4ff;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+input {
+  background-color: #eee;
   border: none;
-  border-bottom: 1px solid #e7e7e7;
-  border-radius: 0;
-  min-height: 40px;
-  font-size: 18px;
-  font-weight: normal;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
 }
 </style>
