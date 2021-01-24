@@ -11,3 +11,5 @@ export const MessageServiceEndpoints = {
   Login: "/api/auth/login",
   SignUp: "/api/auth/signup",
 };
+
+export const MessageServiceMessageHubEndpoint = "/messagehub";
