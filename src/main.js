@@ -9,7 +9,7 @@ import "vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css";
 
 // Global Component Reg.
 import Navbar from "@/components/Navbar.vue";
-import LoadingBar from "@/component/Reuseable/LoadingBar.vue";
+import LoadingBar from "@/components/Reuseable/LoadingBar.vue";
 
 createApp(App)
   .use(store)

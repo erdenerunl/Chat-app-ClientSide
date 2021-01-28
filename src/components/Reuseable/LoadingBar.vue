@@ -7,6 +7,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  
+}
+</script>
+
 <style scoped>
 .spinner-border {
   color: #8409de;

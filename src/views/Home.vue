@@ -9,6 +9,7 @@
           <profile v-if="isProfile" />
         </div>
       </div>
+      <loading-bar v-if="isLoaded" />
     </div>
   </div>
 </template>
@@ -19,13 +20,21 @@ import Profile from '@/components/Profile/Profile.vue'
 import Navbar from '@/components/Navbar.vue'
 import Chatbar from '@/components/Chatbar.vue'
 import Chat from '@/components/ChatSide/Chat.vue'
+import LoadingBar from '@/components/Reuseable/LoadingBar.vue'
+
 import { mapGetters } from 'vuex'
 export default {
   components : {
     Navbar,
     Chatbar,
     Chat,
-    Profile
+    Profile,
+    LoadingBar
+  },
+  data(){
+    return{
+      isLoaded: false
+    }
   },
   computed:{
     ...mapGetters({

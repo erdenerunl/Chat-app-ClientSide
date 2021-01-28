@@ -10,7 +10,7 @@
       <span>or use your email for registration</span>
       <input type="text" v-model="user.username" placeholder="Username" />
       <input type="password" v-model="user.password" placeholder="Password" />
-      <button @click="handleSignUp">Sign Up</button>
+      <button @click.prevent="handleSignUp(user)">Sign Up</button>
     </form>
   </div>
 </template>
@@ -23,25 +23,27 @@ export default {
   data() {
     return {
       user: {
-        username: "",
-        password: "",
+        username: "erdenerunl",
+        password: "123698745",
       },
     };
   },
   methods: {
-    handleSignUp(e) {
-      e.preventDefault();
+    handleSignUp(user) {
+      console.log(user)
+      // let createdUser = new User(this.user.username, this.user.password);
+      // let validationResult = Validator.User(createdUser);
 
-      let createdUser = new User(this.user.username, this.user.password);
-      let validationResult = Validator.User(createdUser);
-
-      console.log(validationResult);
+      // console.log(validationResult)
 
       //   if (validationResult.isValid) {
       //     // Validasyon başarılıysa backende bağlanacağız.
       //   } else {
       //     // Ekrana hatayı yani validationResult.message ı yazalım
       //   }
+
+
+      this.$router.push({name: "Home"}) // bunu validasyon metodumuzun içine yazalım. -e
     },
   },
 };
