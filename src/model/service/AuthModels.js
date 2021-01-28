@@ -8,10 +8,17 @@ export class AuthResult {
   }
 }
 
-export class LoginModel {
+export class SignUpModel {
   constructor(username, password, role = Constant.Role.User) {
     this.username = username;
     this.password = password;
     this.role = role;
+  }
+}
+
+export class LoginModel {
+  constructor(username, password) {
+    this.username = username;
+    this.password = password;
   }
 }
