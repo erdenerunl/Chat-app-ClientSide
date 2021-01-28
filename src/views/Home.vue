@@ -6,6 +6,7 @@
         <div class="row mr-0">
           <chatbar />
           <chat  />
+          <profile v-if="isProfile" />
         </div>
       </div>
     </div>
@@ -13,15 +14,24 @@
 </template>
 
 <script>
+
+import Profile from '@/components/Profile/Profile.vue'
 import Navbar from '@/components/Navbar.vue'
 import Chatbar from '@/components/Chatbar.vue'
-import Chat from '@/components/Chat.vue'
+import Chat from '@/components/ChatSide/Chat.vue'
+import { mapGetters } from 'vuex'
 export default {
   components : {
     Navbar,
     Chatbar,
-    Chat
+    Chat,
+    Profile
   },
+  computed:{
+    ...mapGetters({
+      isProfile: "Profile/isProfile"
+    })
+  }
   
 }
 </script>

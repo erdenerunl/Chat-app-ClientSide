@@ -6,12 +6,15 @@ import "@/assets/main.scss";
 import PerfectScrollbar from "vue3-perfect-scrollbar";
 import "vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css";
 
-// Global Header Reg.
+
+// Global Component Reg.
 import Navbar from "@/components/Navbar.vue";
+import LoadingBar from "@/component/Reuseable/LoadingBar.vue";
 
 createApp(App)
   .use(store)
   .use(router)
   .use(PerfectScrollbar)
   .component("Navbar", Navbar)
+  .component("LoadingBar", LoadingBar)
   .mount("#app");

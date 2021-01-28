@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-8 col-md-9 col-sm-12 chat p-0">
+  <div class="chat col-lg-8 col-md-9 col-sm-12 p-0">
     <div class="empty-box" v-if="isEmpty">
       <p class="bg-danger p-3">Yan taraftan bir yazışma seç.</p>
     </div>
