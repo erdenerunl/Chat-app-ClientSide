@@ -45,6 +45,12 @@ export default {
       //   } else {
       //     // Ekrana hatayı yani validationResult.message ı yazalım
       //   }
+
+      this.$router.push({ name: "Home" });
+      setTimeout(() => {
+        this.$store.commit("setLoaded");
+      }, 2000);
+      this.$store.commit("setLoaded");
     },
   },
 };
