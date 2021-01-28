@@ -116,11 +116,11 @@ a {
   margin: 15px 0;
   transition: all 200ms;
 
-  &:hover:not(.forgot-password){
+  &:hover:not(.forgot-password) {
     background-color: #00d4ff;
   }
 
-  &.forgot-password:hover{
+  &.forgot-password:hover {
     color: #0193b1;
   }
 }
