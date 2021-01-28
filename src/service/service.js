@@ -1,7 +1,3 @@
-import { UserValidator as User, UserValidator } from "./validation/validator";
+import { Validators } from "./validation/validator";
 
-const Validator = {
-  User: UserValidator,
-};
-
-export { Validator };
+export { Validators };

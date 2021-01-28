@@ -1,3 +1,7 @@
 import * as UserValidator from "./userValidator";
 
-export { UserValidator };
+const Validators = {
+  UserValidator: UserValidator,
+};
+
+export { Validators };

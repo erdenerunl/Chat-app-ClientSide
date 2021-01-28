@@ -1,4 +1,4 @@
-import { ValidationContext, ValidationResult } from "../../model/model";
+import { ValidationModels } from "../../model/model";
 
 const validationMessages = {
   FirsFourCharCanNotNumber: "FirsFourCharCanNotNumber",
@@ -34,8 +34,8 @@ const validateFirstFourCharIsNotNumber = (validationContext) => {
 const validators = [validateFirstFourCharIsNotNumber];
 
 export const Validate = (user) => {
-  let validationResult = new ValidationResult();
-  let validationContext = new ValidationContext(user, validationResult);
+  let validationResult = new ValidationModels.ValidationResult();
+  let validationContext = new ValidationModels.ValidationContext(user, validationResult);
 
   for (let index = 0; index < validators.length; index++) {
     validators[index](validationContext);

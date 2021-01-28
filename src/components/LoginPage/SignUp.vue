@@ -10,14 +10,14 @@
       <span>or use your email for registration</span>
       <input type="text" v-model="user.username" placeholder="Username" />
       <input type="password" v-model="user.password" placeholder="Password" />
-      <button @click.prevent="handleSignUp(user)">Sign Up</button>
+      <button @click="handleSignUp">Sign Up</button>
     </form>
   </div>
 </template>
 
 <script>
-import { Validator } from "../../service/service";
-import { User } from "../../model/model";
+import { Validators } from "../../service/service";
+import { AuthModels } from "../../model/model";
 
 export default {
   data() {
@@ -29,21 +29,22 @@ export default {
     };
   },
   methods: {
-    handleSignUp(user) {
-      console.log(user)
-      // let createdUser = new User(this.user.username, this.user.password);
-      // let validationResult = Validator.User(createdUser);
+    handleSignUp(e) {
+      e.preventDefault();
 
-      // console.log(validationResult)
+      let createdUser = new AuthModels.SignUpModel(
+        this.user.username,
+        this.user.password
+      );
+      let validationResult = Validators.UserValidator.Validate(createdUser);
+
+      console.log(validationResult);
 
       //   if (validationResult.isValid) {
       //     // Validasyon başarılıysa backende bağlanacağız.
       //   } else {
       //     // Ekrana hatayı yani validationResult.message ı yazalım
       //   }
-
-
-      this.$router.push({name: "Home"}) // bunu validasyon metodumuzun içine yazalım. -e
     },
   },
 };
