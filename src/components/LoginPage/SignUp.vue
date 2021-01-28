@@ -42,8 +42,12 @@ export default {
       //     // Ekrana hatayı yani validationResult.message ı yazalım
       //   }
 
+      this.$router.push({name: "Home"})
+      setTimeout(()=> {
+        this.$store.commit("setLoaded")
+      },2000);
+      this.$store.commit("setLoaded")
 
-      this.$router.push({name: "Home"}) // bunu validasyon metodumuzun içine yazalım. -e
     },
   },
 };

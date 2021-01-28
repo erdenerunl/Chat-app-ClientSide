@@ -31,14 +31,10 @@ export default {
     Profile,
     LoadingBar
   },
-  data(){
-    return{
-      isLoaded: false
-    }
-  },
   computed:{
     ...mapGetters({
-      isProfile: "Profile/isProfile"
+      isProfile: "Profile/isProfile",
+      isLoaded: "isLoaded"
     })
   }
   
