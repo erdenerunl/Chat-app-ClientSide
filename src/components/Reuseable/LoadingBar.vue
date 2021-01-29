@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 .spinner-border {
-  color: #8409de;
+  color: #00d4ff;
 }
 .loading-container {
   position: absolute;

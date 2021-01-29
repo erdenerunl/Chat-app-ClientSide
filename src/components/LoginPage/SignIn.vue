@@ -9,7 +9,11 @@
       </div>
       <span>or use your account</span>
       <input type="text" v-model="userData.username" placeholder="Username" />
-      <input type="password" v-model="userData.password" placeholder="Password" />
+      <input
+        type="password"
+        v-model="userData.password"
+        placeholder="Password"
+      />
       <div v-if="signInError" class="alert alert-primary" role="alert">
         {{ signInErrorMessage }}
       </div>
@@ -32,13 +36,18 @@ export default {
     };
   },
   methods: {
-    // handleSignIn() {
+    handleSignIn() {
+        this.$router.push({ name: "Home" });
+        setTimeout(() => {
+          this.$store.commit("setLoaded");
+        }, 750);
+        this.$store.commit("setLoaded");
     //   setTimeout(() => {
-    //     this.signUpErrorMessage = false;
+    //     this.signInError = false;
     //   }, 2000);
-    //   this.validationResultMessage = validationResult.message;
-    //   this.signUpErrorMessage = true;
-    // },
+    //   this.signInErrorMessage = validationResult.message;
+    //   this.signUpInError = true;
+     },
   },
 };
 </script>

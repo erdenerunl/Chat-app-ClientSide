@@ -5,7 +5,12 @@
         <navbar  />
         <div class="row mr-0">
           <chatbar />
-          <chat  />
+            <div v-if="isProfile" class="chat col-lg-4 col-md-6 col-sm-12 p-0">
+              <chat  />
+            </div>
+            <div v-else class="chat col-lg-8 col-md-9 col-sm-12 p-0">
+              <chat />
+            </div>
           <profile v-if="isProfile" />
         </div>
       </div>
@@ -23,6 +28,7 @@ import Chat from '@/components/ChatSide/Chat.vue'
 import LoadingBar from '@/components/Reuseable/LoadingBar.vue'
 
 import { mapGetters } from 'vuex'
+
 export default {
   components : {
     Navbar,
@@ -31,7 +37,8 @@ export default {
     Profile,
     LoadingBar
   },
-  computed:{
+ 
+   computed:{
     ...mapGetters({
       isProfile: "Profile/isProfile",
       isLoaded: "isLoaded"
@@ -47,6 +54,9 @@ export default {
 }
 .layout-wrapper{
   height: 100%;
+}
+.chat {
+  border-right: 1px solid #e6e6e6;
 }
 
 </style>

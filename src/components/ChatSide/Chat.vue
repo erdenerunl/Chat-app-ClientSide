@@ -1,10 +1,10 @@
 <template>
-  <div class="chat col-lg-8 col-md-9 col-sm-12 p-0">
+  <div class="chat-box">
     <div class="empty-box" v-if="isEmpty">
       <p class="bg-danger p-3">Yan taraftan bir yazışma seç.</p>
     </div>
     <div class="chat-wrapper" v-else>
-      <div class="chat-header" >
+      <div class="chat-header">
         <div class="chat-header-user">
           <figure class="user-avatar">
             <div class="fake-img"></div>
@@ -120,10 +120,12 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.chat {
+.chat-box{
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #e6e6e6;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .chat-header {
   display: flex;

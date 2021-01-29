@@ -10,6 +10,9 @@
       <span>or use your email for registration</span>
       <input type="text" v-model="user.username" placeholder="Username" />
       <input type="password" v-model="user.password" placeholder="Password" />
+      <div v-if="signUpError" class="alert alert-primary" role="alert">
+        {{ signUpErrorMessage }}
+      </div>
       <button @click.prevent="handleSignUp">Sign Up</button>
     </form>
   </div>
@@ -23,11 +26,11 @@ export default {
   data() {
     return {
       user: {
-        username: "erdenerunl",
-        password: "123698745",
+        username: "",
+        password: "",
       },
-      // signUpErrorMessage: false,
-      // validationResultMessage: "Geçici error mesajı",
+      signUpError: false,
+      signUpErrorMessage: "Geçici error mesajı",
     };
   },
   methods: {
@@ -47,11 +50,13 @@ export default {
           this.$store.commit("setLoaded");
         }, 750);
         this.$store.commit("setLoaded");
-        
-      // } else {
-      //   // Ekrana hatayı yani validationResult.message ı yazalım
-        
-      // }
+      } else {
+        // Ekrana hatayı yani validationResult.message ı yazalım
+        setTimeout(() => {
+          this.signUpError = false;
+        }, 2000);
+        this.signUpErrorMessage = validationResult.message;
+        this.signUpError = true;
       }
     },
   },
