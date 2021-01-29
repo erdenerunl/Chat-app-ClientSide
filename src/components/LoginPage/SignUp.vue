@@ -10,7 +10,10 @@
       <span>or use your email for registration</span>
       <input type="text" v-model="user.username" placeholder="Username" />
       <input type="password" v-model="user.password" placeholder="Password" />
-      <button @click="handleSignUp">Sign Up</button>
+      <div v-if="signUpErrorMessage" class="alert alert-primary" role="alert">
+        {{ validationResultMessage }}
+      </div>
+      <button @click.prevent="handleSignUp">Sign Up</button>
     </form>
   </div>
 </template>
@@ -26,12 +29,12 @@ export default {
         username: "erdenerunl",
         password: "123698745",
       },
+      signUpErrorMessage: false,
+      validationResultMessage: "",
     };
   },
   methods: {
-    handleSignUp(e) {
-      e.preventDefault();
-
+    handleSignUp() {
       let createdUser = new AuthModels.SignUpModel(
         this.user.username,
         this.user.password
@@ -40,17 +43,22 @@ export default {
 
       console.log(validationResult);
 
-      //   if (validationResult.isValid) {
-      //     // Validasyon başarılıysa backende bağlanacağız.
-      //   } else {
-      //     // Ekrana hatayı yani validationResult.message ı yazalım
-      //   }
-
-      this.$router.push({ name: "Home" });
-      setTimeout(() => {
+      if (validationResult.isValid) {
+        // Validasyon başarılıysa backende bağlanacağız.
+        this.$router.push({ name: "Home" });
+        setTimeout(() => {
+          this.$store.commit("setLoaded");
+        }, 750);
         this.$store.commit("setLoaded");
-      }, 2000);
-      this.$store.commit("setLoaded");
+        
+      } else {
+        // Ekrana hatayı yani validationResult.message ı yazalım
+        setTimeout(() => {
+          this.signUpErrorMessage = false;
+        }, 2000);
+        this.validationResultMessage = validationResult.message;
+        this.signUpErrorMessage = true;
+      }
     },
   },
 };
