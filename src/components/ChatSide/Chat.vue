@@ -1,7 +1,7 @@
 <template>
   <div class="chat-box">
     <div class="empty-box" v-if="isEmpty">
-      <p class="bg-danger p-3">Yan taraftan bir yazışma seç.</p>
+      <p class="bg-danger p-3">Select a chat from your chat list.</p>
     </div>
     <div class="chat-wrapper" v-else>
       <div class="chat-header">
