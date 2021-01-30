@@ -41,15 +41,16 @@ export default {
       );
       let validationResult = Validators.UserValidator.Validate(createdUser);
 
-      console.log(validationResult);
+      
 
       if (validationResult.isValid) {
         // Validasyon başarılıysa backende bağlanacağız.
-        this.$router.push({ name: "Home" });
-        setTimeout(() => {
-          this.$store.commit("setLoaded");
-        }, 750);
-        this.$store.commit("setLoaded");
+        // this.$router.push({ name: "Home" });
+        // setTimeout(() => {
+        //   this.$store.commit("setLoaded");
+        // }, 750);
+        // this.$store.commit("setLoaded");
+        console.log(validationResult);
       } else {
         // Ekrana hatayı yani validationResult.message ı yazalım
         setTimeout(() => {

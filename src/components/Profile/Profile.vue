@@ -2,7 +2,7 @@
   <div class="profile-sidebar col-lg-4 col-md-12 col-sm-12 px-0">
     <header>
       <span>Profile</span>
-      <button class="action-button btn btn-outline-light text-center">
+      <button @click="closeProfile" class="action-button btn btn-outline-light text-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -138,7 +138,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+    methods:{
+        closeProfile(){
+            this.$store.commit("Profile/goProfile")
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
