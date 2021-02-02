@@ -13,17 +13,16 @@ const SignUp = (signUpModel) => {
   return sendSignUpRequest(signUpModel);
 };
 
-const sendSignUpRequest = (signUpModel) => {
+const sendSignUpRequest = async (signUpModel) => {
   let signUpResponse = undefined;
 
-  Axios.post(SignUpServiceUrl, signUpModel)
-    .then((response) => {
-      signUpResponse = prepareSuccessfulSignUpResult(response);
-    })
-    .catch((error) => {
-      handleUnsuccessfulSignUp(error);
-      signUpResponse = prepareUnsuccessfulSignUpResult();
-    });
+  try {
+    let response = await Axios.post(SignUpServiceUrl, signUpModel);
+    signUpResponse = prepareSuccessfulSignUpResult(response);
+  } catch (error) {
+    handleUnsuccessfulSignUp(error);
+    signUpResponse = prepareUnsuccessfulSignUpResult();
+  }
 
   return signUpResponse;
 };
@@ -50,17 +49,16 @@ const Login = (loginModel) => {
   return sendLoginRequest(loginModel);
 };
 
-const sendLoginRequest = (loginModel) => {
+const sendLoginRequest = async (loginModel) => {
   let loginResponse = undefined;
 
-  Axios.post(LoginServiceUrl, loginModel)
-    .then((response) => {
-      loginResponse = prepareSuccessfulLoginResult(response);
-    })
-    .catch((error) => {
-      handleUnsuccessfulLogin(error);
-      loginResponse = prepareUnsuccessfulLoginResult();
-    });
+  try {
+    let response = await Axios.post(LoginServiceUrl, loginModel);
+    loginResponse = prepareSuccessfulLoginResult(response);
+  } catch (error) {
+    handleUnsuccessfulLogin(error);
+    loginResponse = prepareUnsuccessfulLoginResult();
+  }
 
   return loginResponse;
 };
@@ -81,4 +79,4 @@ const prepareUnsuccessfulLoginResult = (loginRequestError) => {
   return new AuthModels.AuthResult(false, loginRequestError.toString());
 };
 
-export { SignUp, Login };
+export const AuthService = { SignUp, Login };

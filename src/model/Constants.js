@@ -5,7 +5,7 @@ export const Auth = {
   },
 };
 
-export const MessageServiceBase = "http://localhost:8080";
+export const MessageServiceBase = "http://localhost:5000";
 
 export const MessageServiceEndpoints = {
   Login: "/api/auth/login",

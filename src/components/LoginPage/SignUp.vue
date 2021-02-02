@@ -19,8 +19,9 @@
 </template>
 
 <script>
-import { Validators } from "../../service/service";
+import { Validators, AuthService } from "../../service/service";
 import { AuthModels } from "../../model/model";
+import { SignUpModel } from "../../model/service/AuthModels";
 
 export default {
   data() {
@@ -34,23 +35,24 @@ export default {
     };
   },
   methods: {
-    handleSignUp() {
+    async handleSignUp() {
       let createdUser = new AuthModels.SignUpModel(
         this.user.username,
         this.user.password
       );
       let validationResult = Validators.UserValidator.Validate(createdUser);
-
-      
+      console.log("SignUp validation result: ", validationResult);
 
       if (validationResult.isValid) {
-        // Validasyon başarılıysa backende bağlanacağız.
-        // this.$router.push({ name: "Home" });
-        // setTimeout(() => {
-        //   this.$store.commit("setLoaded");
-        // }, 750);
-        // this.$store.commit("setLoaded");
-        console.log(validationResult);
+        let signUpResult = await AuthService.SignUp(
+          new SignUpModel(this.user.username, this.user.password)
+        );
+        console.log("SignUp auth result: ", signUpResult);
+
+        if (signUpResult.isSuccessful) {
+          // Kayıt başarılı gibi bir mesaj yazalım ekrana
+        } else {
+        }
       } else {
         // Ekrana hatayı yani validationResult.message ı yazalım
         setTimeout(() => {
