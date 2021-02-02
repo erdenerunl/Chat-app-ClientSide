@@ -2,14 +2,14 @@ import { ValidationModels } from "../../model/model";
 
 const validationMessages = {
   FirstFourCharCanNotNumber: "FirstFourCharCanNotNumber",
-  InvalidUsername: "This username is invalid",
-  InvalidPassword: "This password is invalid",
+  UsernameHasDefaultValues: "This username is invalid",
+  PasswordHasDefaultValues: "This password is invalid",
 };
 
 // Bütün metotların imzası aynı olmalı (validationContext) => void
 
 // 1 - username: undefined, null veya empty ("") olmamalı
-const validateInvalidUsername = (validationContext) => {
+const validateUsernameHasDefaultValues = (validationContext) => {
   let user = validationContext.model;
 
   if (user === "" || user === undefined || user === null) {
@@ -19,8 +19,9 @@ const validateInvalidUsername = (validationContext) => {
   }
   return;
 };
+
 // 2 - password: undefined, null veya empty ("") olmamalı
-const validateInvalidPassword = (validationContext) => {
+const validatePasswordHasDefaultValues = (validationContext) => {
   let password = validationContext.model;
   if (password === "" || password === undefined || password === null) {
     validationContext.validationResult.isValid = false;
@@ -49,15 +50,14 @@ const validateFirstFourCharIsNotNumber = (validationContext) => {
   return;
 };
 
-
 // 5 - password: en az 8 karakter içermeli
 // 6 - en az 1 rakam, 1 harf içermeli
 
 // yazılacak metotları yukarıdaki sırayla aşağıdaki array e eklemeliyiz.
 const validators = [
+  validateUsernameHasDefaultValues,
+  validatePasswordHasDefaultValues,
   validateFirstFourCharIsNotNumber,
-  validateInvalidUsername,
-  validateInvalidPassword,
 ];
 
 export const Validate = (user) => {
