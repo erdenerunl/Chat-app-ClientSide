@@ -25,7 +25,7 @@
 
 <script>
 import { mapMutations } from "vuex";
-import { LoginModel, AuthResult, User, Message } from "../../model/model";
+import { AuthModels, AuthResult, User, Message } from "../../model/model";
 import { Validators, AuthService, MessageService } from "../../service/service";
 export default {
   data() {
@@ -49,7 +49,7 @@ export default {
 
       if (signInValidation.isValid) {
         let signInResult = await AuthService.Login(
-          new LoginModel(this.userData.username, this.userData.password)
+          new AuthModels.LoginModel(this.userData.username, this.userData.password)
         );
 
         if (signInResult.isAuthenticated) {
