@@ -24,30 +24,55 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+import { LoginModel, AuthResult } from "../../model/service/AuthModels";
+import User from "../../model/User";
+import { Validators, AuthService } from "../../service/service";
 export default {
   data() {
     return {
-        userData:{
-            username: "erdenerunl",
-            password: "123698745"
-        },
-        signInError: false,
-        signInErrorMessage: "Geçici kayıtlı kullanıcı hata mesajı"
+      userData: {
+        username: "",
+        password: "",
+      },
+      signInError: false,
+      signInErrorMessage: "Geçici kayıtlı kullanıcı hata mesajı",
     };
   },
   methods: {
-    handleSignIn() {
-        this.$router.push({ name: "Home" });
-        setTimeout(() => {
-          this.$store.commit("setLoaded");
-        }, 750);
-        this.$store.commit("setLoaded");
-    //   setTimeout(() => {
-    //     this.signInError = false;
-    //   }, 2000);
-    //   this.signInErrorMessage = validationResult.message;
-    //   this.signUpInError = true;
-     },
+    ...mapMutations({ setUserInfo: "setUserInfo" }),
+
+    async handleSignIn() {
+      let signInValidation = Validators.UserValidator.Validate(
+        new User(this.userData.username, this.userData.password)
+      );
+
+      if (signInValidation.isValid) {
+        let signInResult = await AuthService.Login(
+          new LoginModel(this.userData.username, this.userData.password)
+        );
+
+        if (signInResult.isAuthenticated) {
+          this.handleAuthenticatedUserProcesses(signInResult);
+        } else {
+          // ekrana hatayı basalım
+        }
+      } else {
+        // ekrana hata basalım
+      }
+    },
+
+    /**
+     * It execute the processes to be done after successful login by user.
+     *
+     * @param {AuthResult} authResult Auth result object.
+     * @return {void} void
+     */
+    handleAuthenticatedUserProcesses: function (authResult) {
+      localStorage.setItem("access_token", authResult.token);
+
+      this.setUserInfo(new User(this.userData.username, authResult.token));
+    },
   },
 };
 </script>
