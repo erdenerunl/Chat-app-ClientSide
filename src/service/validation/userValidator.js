@@ -36,17 +36,16 @@ const validatePasswordHasDefaultValues = (validationContext) => {
 const validateFirstFourCharIsNotNumber = (validationContext) => {
   let user = validationContext.model;
   let firstFourCharOfUsernameAsArray = user.username.slice(0, 4).split("");
-  let arrayX = [];
-  firstFourCharOfUsernameAsArray.forEach((e) => {
-    if (Number.isInteger(parseInt(e))) {
-      arrayX.push(e);
-      if (arrayX.length === 4) {
-        validationContext.validationResult.isValid = false;
-        validationContext.validationResult.Message =
-          validationMessages.FirstFourCharCanNotNumber;
-      }
+
+  for (let index = 0; index < firstFourCharOfUsernameAsArray.length; index++) {
+    if (Number.isInteger(parseInt(firstFourCharOfUsernameAsArray[index]))) {
+      validationContext.validationResult.isValid = false;
+      validationContext.validationResult.Message =
+        validationMessages.FirstFourCharCanNotNumber;
+
+      break;
     }
-  });
+  }
   return;
 };
 
