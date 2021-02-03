@@ -25,9 +25,8 @@
 
 <script>
 import { mapMutations } from "vuex";
-import { LoginModel, AuthResult } from "../../model/service/AuthModels";
-import User from "../../model/User";
-import { Validators, AuthService } from "../../service/service";
+import { LoginModel, AuthResult, User, Message } from "../../model/model";
+import { Validators, AuthService, MessageService } from "../../service/service";
 export default {
   data() {
     return {
@@ -37,6 +36,7 @@ export default {
       },
       signInError: false,
       signInErrorMessage: "Geçici kayıtlı kullanıcı hata mesajı",
+      MessageService: undefined,
     };
   },
   methods: {
@@ -63,7 +63,17 @@ export default {
     },
 
     /**
-     * It execute the processes to be done after successful login by user.
+     * The method to execute when the user receives a message
+     *
+     * @param {Message} message Incoming message object
+     * @return {void} void
+     */
+    receiveMessageHandler(message) {
+      console.log("Message received !", message);
+    },
+
+    /**
+     * It execute the processes to be done after successful login by user
      *
      * @param {AuthResult} authResult Auth result object.
      * @return {void} void
@@ -72,6 +82,10 @@ export default {
       localStorage.setItem("access_token", authResult.token);
 
       this.setUserInfo(new User(this.userData.username, authResult.token));
+
+      this.$data.MessageService = new MessageService(
+        this.receiveMessageHandler
+      );
     },
   },
 };

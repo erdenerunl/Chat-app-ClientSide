@@ -19,3 +19,5 @@ export {
   SentPrivateMessage,
   SentGroupMessage,
 };
+
+export { Message } from "./Message";

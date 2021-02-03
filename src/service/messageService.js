@@ -8,7 +8,7 @@ const SendMessageToAllServiceMethodName = "SendMessageToAll";
 
 let messageHubConnectionResult = undefined;
 
-export default class MessageService extends SignalRService {
+export class MessageService extends SignalRService {
   constructor(receiveMessageHandler) {
     super(
       new SignalRConfig(

@@ -1,4 +1,4 @@
-import signalR from "@microsoft/signalr";
+const signalR = require("@microsoft/signalr");
 import { ProcessResult } from "../model/model";
 
 const ConnectionFailedMessage = "ConnectionFailedMessage";
@@ -7,7 +7,7 @@ const ConnectedMessage = "ConnectedMessage";
 let connection = undefined;
 let connectionAttemptCounter = 0;
 
-export default class SignalRService {
+export class SignalRService {
   constructor(signalRConfig) {
     connection = new signalR.HubConnectionBuilder()
       .withUrl(signalRConfig.url, {
