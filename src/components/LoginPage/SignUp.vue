@@ -50,7 +50,7 @@ export default {
         console.log("SignUp auth result: ", signUpResult);
 
         if (signUpResult.isSuccessful) {
-          // Kayıt başarılı gibi bir mesaj yazalım ekrana
+          alert("SignUp successful !");
         } else {
         }
       } else {
