@@ -6,8 +6,8 @@
       </figure>
       <div class="user-list-body d-flex w-100 justify-content-between">
         <div class="user-list-text">
-          <h5> {{ friend.name }} </h5>
-          <p> {{ friend.status }} </p>
+          <h5>{{ friend.name }}</h5>
+          <p>{{ friend.status }}</p>
         </div>
       </div>
     </li>
@@ -15,17 +15,16 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-
-    created(){
-        this.$store.dispatch("Friends/getFriends")
-    },
-    computed:{
-        ...mapGetters({
-            friends : "Friends/friends"
-        })
-    }
+  created() {
+    this.$store.dispatch("Friends/getFriends");
+  },
+  computed: {
+    ...mapGetters({
+      friends: "Friends/friends",
+    }),
+  },
 };
 </script>
 

@@ -9,6 +9,7 @@ export default createStore({
   state: {
     isLoaded: false,
     userInfo: {},
+    messageService: undefined,
   },
   mutations: {
     setLoaded(state) {
@@ -16,6 +17,9 @@ export default createStore({
     },
     setUserInfo(state, userInfo) {
       state.userInfo = userInfo;
+    },
+    setMessagingService(state, messagingService) {
+      state.messageService = messagingService;
     },
   },
   actions: {},
