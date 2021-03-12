@@ -25,18 +25,17 @@
 </template>
 
 <script>
-
-import Profile from '@/components/Profile/Profile.vue'
-import Navbar from '@/components/Navbar.vue'
-import Chatbar from '@/components/Chatbar.vue'
-import Chat from '@/components/ChatSide/Chat.vue'
-import LoadingBar from '@/components/Reuseable/LoadingBar.vue'
-
-import { mapGetters } from 'vuex'
-import Notifications from '../components/Reuseable/Notifications.vue'
+import Profile from "@/components/Profile/Profile.vue";
+import Navbar from "@/components/Navbar.vue";
+import Chatbar from "@/components/Chatbar.vue";
+import Chat from "@/components/ChatSide/Chat.vue";
+import LoadingBar from "@/components/Reuseable/LoadingBar.vue";
+import Notifications from "@/components/Reuseable/Notifications.vue"
+import { mapGetters, mapMutations } from "vuex";
+import { MessagingService } from "../service/messageService";
 
 export default {
-  components : {
+  components: {
     Navbar,
     Chatbar,
     Chat,
@@ -44,17 +43,21 @@ export default {
     LoadingBar,
     Notifications
   },
-  
-  
- 
-   computed:{
+  created() {
+    this.setMessagingService(
+      new MessagingService(() => console.log("message received !"))
+    );
+  },
+  methods: {
+    ...mapMutations({ setMessagingService: "setMessagingService" }),
+  },
+  computed: {
     ...mapGetters({
       isProfile: "Profile/isProfile",
-      isLoaded: "isLoaded"
-    })
-  }
-  
-}
+      isLoaded: "isLoaded",
+    }),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

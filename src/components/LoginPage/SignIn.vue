@@ -52,13 +52,17 @@ export default {
 
       if (signInValidation.isValid) {
         let signInResult = await AuthService.Login(
-          new AuthModels.LoginModel(this.userData.username, this.userData.password)
+          new AuthModels.LoginModel(
+            this.userData.username,
+            this.userData.password
+          )
         );
 
         if (signInResult.isAuthenticated) {
           this.handleAuthenticatedUserProcesses(signInResult);
         } else {
           // ekrana hatayı basalım
+          alert(signInResult.message);
         }
       } else {
         // ekrana hata basalım
@@ -89,6 +93,8 @@ export default {
       this.$data.MessageService = new MessageService(
         this.receiveMessageHandler
       );
+      
+      this.$router.push("/");
     },
   },
   
