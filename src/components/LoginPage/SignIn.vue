@@ -1,5 +1,6 @@
 <template>
   <div class="form-container sign-in-container">
+    
     <form action="#">
       <h1>Sign in</h1>
       <div class="social-container">
@@ -27,7 +28,9 @@
 import { mapMutations } from "vuex";
 import { AuthModels, AuthResult, User, Message } from "../../model/model";
 import { Validators, AuthService, MessageService } from "../../service/service";
+
 export default {
+  components: { Notifications },
   data() {
     return {
       userData: {
@@ -88,6 +91,8 @@ export default {
       );
     },
   },
+  
+  
 };
 </script>
 

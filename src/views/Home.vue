@@ -2,20 +2,25 @@
   <div>
     <div class="layout">
       <div class="container-fluid layout-wrapper p-0">
-        <navbar  />
+        <navbar />
         <div class="row mr-0">
           <chatbar />
-            <div v-if="isProfile" class="chat col-lg-4 col-md-6 col-sm-12 p-0">
-              <chat  />
-            </div>
-            <div v-else class="chat col-lg-8 col-md-9 col-sm-12 p-0">
-              <chat />
-            </div>
+          <div v-if="isProfile" class="chat col-lg-4 col-md-6 col-sm-12 p-0">
+            <chat />
+          </div>
+          <div v-else class="chat col-lg-8 col-md-9 col-sm-12 p-0">
+            <chat />
+          </div>
           <profile v-if="isProfile" />
         </div>
       </div>
       <loading-bar v-if="isLoaded" />
     </div>
+  </div>
+  <div class="alertbox">
+    <notifications type="warning" >
+      hata var
+    </notifications>
   </div>
 </template>
 
@@ -28,6 +33,7 @@ import Chat from '@/components/ChatSide/Chat.vue'
 import LoadingBar from '@/components/Reuseable/LoadingBar.vue'
 
 import { mapGetters } from 'vuex'
+import Notifications from '../components/Reuseable/Notifications.vue'
 
 export default {
   components : {
@@ -35,8 +41,11 @@ export default {
     Chatbar,
     Chat,
     Profile,
-    LoadingBar
+    LoadingBar,
+    Notifications
   },
+  
+  
  
    computed:{
     ...mapGetters({
@@ -49,14 +58,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout{
+.layout {
   height: 100vh;
 }
-.layout-wrapper{
+.layout-wrapper {
   height: 100%;
 }
 .chat {
   border-right: 1px solid #e6e6e6;
 }
-
 </style>
